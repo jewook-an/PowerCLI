@@ -1,0 +1,653 @@
+[
+  {
+    "CLUSTER_UUID":"d8acb0bf-b743-0087-c716-622720ea39d9",
+    "CLUSTER_IP":"192.168.1.7",
+    "CLUSTER_PORT":"80",
+    "CLUSTER_ID":"root",
+    "CLUSTER_PW":"9F2Pl8cH6Wf9cwTRFerLSg==",
+    "HYPERVISOR_TYPE":"Citrix"
+  }
+]
+
+{
+    "HEADER": {
+      "STATUS": "SUCCESS",
+      "MESSAGE": ""
+    },
+    "RESULT": [
+      {
+        "CLUSTER_UUID": "089e3127-2256-8ce6-d865-bd6f08fd9b4d",
+        "CLUSTER_NAME": "NCC-OP-POOL",
+        "PRODUCT_VERSION": "8.2.0",
+        "NETWORK_INFO": [
+          {
+            "Uuid": "4473b0ab-6497-8aaa-defd-7531a29a4879",
+            "NameLabel": "Network 0",
+            "NameDescription": "",
+            "NicName": "NIC 0",
+            "VlanNumber": "-1",
+            "Bridge": "xenbr0",
+            "Mtc": 1500
+          },
+          {
+            "Uuid": "95769bb1-4118-1408-fd89-6c203f6ca8e3",
+            "NameLabel": "Network 3",
+            "NameDescription": "",
+            "NicName": "NIC 3",
+            "VlanNumber": "-1",
+            "Bridge": "xenbr3",
+            "Mtc": 1500
+          },
+          {
+            "Uuid": "57dae437-4291-fab9-26d6-d919941c5a12",
+            "NameLabel": "Network 1",
+            "NameDescription": "",
+            "NicName": "NIC 1",
+            "VlanNumber": "-1",
+            "Bridge": "xenbr1",
+            "Mtc": 1500
+          },
+          {
+            "Uuid": "e538230b-d4c5-2940-76ef-81d24f46ff76",
+            "NameLabel": "Network 2",
+            "NameDescription": "",
+            "NicName": "NIC 2",
+            "VlanNumber": "-1",
+            "Bridge": "xenbr2",
+            "Mtc": 1500
+          }
+        ],
+        "SERVER_INFO": [
+          {
+            "Session_Address": "192.168.1.3",
+            "UUID_Host": "8b8d1b58-a7ee-4704-8b6c-0be64eefc613",
+            "Address_Host": "192.168.1.3",
+            "NameLabel_Host": "ncc-op1",
+            "Description_Host": "Default install",
+            "Name_Host": "ncc-op1",
+            "TotalRAM_Host": 103031554048.0,
+            "IsLive_Host": true,
+            "IsMaster": true,
+            "CPUInfo_Host": "",
+            "ModelName_Host": "Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+            "Speed_Host": "2499.998",
+            "Vendor_Host": "GenuineIntel",
+            "Version_Host": "8.2",
+            "Bios_Host": "Dell Inc. PowerEdge R620",
+            "CPUAccount_Host": "24",
+            "Resident_VMS_Count": 18,
+            "hostNetworkInfo": [
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_PIF": "ab5f11bc-1718-9b2e-a4cc-2c2d951b0399",
+                "IPAddress_PIF": "",
+                "MacAddress_PIF": "24:b6:fd:f5:14:7a",
+                "DNS_PIF": "",
+                "Gateway_PIF": "",
+                "Subnet_PIF": "",
+                "XenAPI_PIF": null
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_PIF": "92af2d96-0939-f2fb-4857-837bc8ec7519",
+                "IPAddress_PIF": "",
+                "MacAddress_PIF": "24:b6:fd:f5:14:7b",
+                "DNS_PIF": "",
+                "Gateway_PIF": "",
+                "Subnet_PIF": "",
+                "XenAPI_PIF": null
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_PIF": "44f2bdd9-8d99-b582-ab56-619e3020eace",
+                "IPAddress_PIF": "192.168.1.3",
+                "MacAddress_PIF": "24:b6:fd:f5:14:78",
+                "DNS_PIF": "8.8.8.8,168.126.63.1,168.126.63.2",
+                "Gateway_PIF": "192.168.1.1",
+                "Subnet_PIF": "255.255.255.0",
+                "XenAPI_PIF": null
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_PIF": "7d15998d-b0b3-2d82-f1ec-a9a77bc295c2",
+                "IPAddress_PIF": "",
+                "MacAddress_PIF": "24:b6:fd:f5:14:79",
+                "DNS_PIF": "",
+                "Gateway_PIF": "",
+                "Subnet_PIF": "",
+                "XenAPI_PIF": null
+              }
+            ],
+            "XenAPI_Host": null,
+            "hostSRInfo": [
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_Storage": "cfbce446-8f2f-cb6f-cdad-a4ebf7eb9836",
+                "NameLabel_Storage": "DS916",
+                "Description_Storage": "NFS SR [192.168.1.103://volume1/VDI-SR]",
+                "Shared_Storage": true,
+                "Physical_Size_Storage": 17269163687936,
+                "Physical_Utilisation_Storage": 1929234219008,
+                "Virtual_Allocation_Storage": 1623615078400,
+                "XenAPI_SR": null,
+                "srType": "nfs"
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_Storage": "fc8b7816-a07d-c7ef-f606-121e575e334d",
+                "NameLabel_Storage": "DS1515_SMB",
+                "Description_Storage": "SMB ISO Library [\\\\192.168.1.9\\public]",
+                "Shared_Storage": true,
+                "Physical_Size_Storage": 11892890607616,
+                "Physical_Utilisation_Storage": 943600009216,
+                "Virtual_Allocation_Storage": 28589928448,
+                "XenAPI_SR": null,
+                "srType": "iso"
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_Storage": "16279052-f21e-0b28-77a4-23345ad354c9",
+                "NameLabel_Storage": "DS1515",
+                "Description_Storage": "NFS SR [192.168.1.9://volume1/DS_NFS]",
+                "Shared_Storage": true,
+                "Physical_Size_Storage": 11892890664960,
+                "Physical_Utilisation_Storage": 937911255040,
+                "Virtual_Allocation_Storage": 1782461759488,
+                "XenAPI_SR": null,
+                "srType": "nfs"
+              }
+            ]
+          },
+          {
+            "Session_Address": "192.168.1.3",
+            "UUID_Host": "8f6901af-319e-436a-8d02-9aba3e692228",
+            "Address_Host": "192.168.1.6",
+            "NameLabel_Host": "ncc-op2",
+            "Description_Host": "Default install",
+            "Name_Host": "ncc-op2",
+            "TotalRAM_Host": 51441401856.0,
+            "IsLive_Host": true,
+            "IsMaster": false,
+            "CPUInfo_Host": "",
+            "ModelName_Host": "Intel(R) Xeon(R) CPU E5-2620 v3 @ 2.40GHz",
+            "Speed_Host": "2399.947",
+            "Vendor_Host": "GenuineIntel",
+            "Version_Host": "8.2",
+            "Bios_Host": "Dell Inc. PowerEdge R730",
+            "CPUAccount_Host": "24",
+            "Resident_VMS_Count": 13,
+            "hostNetworkInfo": [
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_PIF": "63bcb567-d6d8-9210-9199-5cbc98222224",
+                "IPAddress_PIF": "",
+                "MacAddress_PIF": "14:18:77:68:5c:b0",
+                "DNS_PIF": "",
+                "Gateway_PIF": "",
+                "Subnet_PIF": "",
+                "XenAPI_PIF": null
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_PIF": "53f83ec1-d894-da79-4a54-5a928a5831bc",
+                "IPAddress_PIF": "",
+                "MacAddress_PIF": "14:18:77:68:5c:b1",
+                "DNS_PIF": "",
+                "Gateway_PIF": "",
+                "Subnet_PIF": "",
+                "XenAPI_PIF": null
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_PIF": "fe018ff5-4338-74ce-0370-33ae3f98c0cb",
+                "IPAddress_PIF": "",
+                "MacAddress_PIF": "14:18:77:68:5c:af",
+                "DNS_PIF": "",
+                "Gateway_PIF": "",
+                "Subnet_PIF": "",
+                "XenAPI_PIF": null
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_PIF": "e54bb208-dfe0-5faa-c7ea-d32b24c1cf41",
+                "IPAddress_PIF": "192.168.1.6",
+                "MacAddress_PIF": "14:18:77:68:5c:ae",
+                "DNS_PIF": "8.8.8.8,168.126.63.1,168.126.63.2",
+                "Gateway_PIF": "192.168.1.1",
+                "Subnet_PIF": "255.255.255.0",
+                "XenAPI_PIF": null
+              }
+            ],
+            "XenAPI_Host": null,
+            "hostSRInfo": [
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_Storage": "fc8b7816-a07d-c7ef-f606-121e575e334d",
+                "NameLabel_Storage": "DS1515_SMB",
+                "Description_Storage": "SMB ISO Library [\\\\192.168.1.9\\public]",
+                "Shared_Storage": true,
+                "Physical_Size_Storage": 11892890607616,
+                "Physical_Utilisation_Storage": 943600009216,
+                "Virtual_Allocation_Storage": 28589928448,
+                "XenAPI_SR": null,
+                "srType": "iso"
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_Storage": "16279052-f21e-0b28-77a4-23345ad354c9",
+                "NameLabel_Storage": "DS1515",
+                "Description_Storage": "NFS SR [192.168.1.9://volume1/DS_NFS]",
+                "Shared_Storage": true,
+                "Physical_Size_Storage": 11892890664960,
+                "Physical_Utilisation_Storage": 937911255040,
+                "Virtual_Allocation_Storage": 1782461759488,
+                "XenAPI_SR": null,
+                "srType": "nfs"
+              },
+              {
+                "Session_Address": "192.168.1.3",
+                "UUID_Storage": "cfbce446-8f2f-cb6f-cdad-a4ebf7eb9836",
+                "NameLabel_Storage": "DS916",
+                "Description_Storage": "NFS SR [192.168.1.103://volume1/VDI-SR]",
+                "Shared_Storage": true,
+                "Physical_Size_Storage": 17269163687936,
+                "Physical_Utilisation_Storage": 1929234219008,
+                "Virtual_Allocation_Storage": 1623615078400,
+                "XenAPI_SR": null,
+                "srType": "nfs"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
+
+
+
+
+  {
+    [
+      {
+        "clusterinfo":
+        {
+          "UUID": "ClusterUUID",
+          "Id": "ClusterComputeResource-domain-c61",
+          "Name": "NM_VMWC",
+          "HAFailoverLevel": 1,
+          "DrsAutomationLevel": "FullyAutomated",
+          "detailinfo":
+          {
+            "ResourcePool": "ResourcePool-resgroup-62",
+            "Parent": "Folder-group-h23",
+            "Name": "NM_VMWC",
+            "summary":
+            {
+              "TargetBalance": 282,
+              "TotalCpu": 33520,
+              "TotalMemory": "101428273152",
+              "NumCpuCores": 16,
+              "NumCpuThreads": 32,
+              "EffectiveCpu": 28952,
+              "EffectiveMemory": "88740",
+              "NumHosts": 1,
+              "NumEffectiveHosts": 1
+            },
+            "hosts":
+            [
+              {
+                "type": "HostSystem",
+                "value": "host-28",
+                "hostid": "HostSystem-host-28"
+              }
+            ],
+            "datastores":
+            [
+              {
+                "type": "Datastore",
+                "value": "datastore-29",
+                "datastoreid": "Datastore-datastore-29"
+              }
+            ],
+            "networks":
+            [
+              {
+                "type": "Network",
+                "value": "network-305",
+                "networkid": "Network-network-305"
+              },
+              {
+                "type": "Network",
+                "value": "network-305",
+                "networkid": "Network-network-305"
+              }
+            ]
+          }
+        },
+        "clusterdetail":
+        {
+          "ResourcePool": "ResourcePool-resgroup-62",
+          "Parent": "Folder-group-h23",
+          "Name": "NM_VMWC",
+          "summary":
+          {
+            "TargetBalance": 282,
+            "TotalCpu": 33520,
+            "TotalMemory": "101428273152",
+            "NumCpuCores": 16,
+            "NumCpuThreads": 32,
+            "EffectiveCpu": 28952,
+            "EffectiveMemory": "88740",
+            "NumHosts": 1,
+            "NumEffectiveHosts": 1
+          },
+          "hosts":
+          [
+            {
+              "type": "HostSystem",
+              "value": "host-28",
+              "hostid": "HostSystem-host-28"
+            }
+          ],
+          "datastores":
+          [
+            {
+              "type": "Datastore",
+              "value": "datastore-29",
+              "datastoreid": "Datastore-datastore-29"
+            }
+          ],
+          "networks":
+          [
+            {
+              "type": "Network",
+              "value": "network-305",
+              "networkid": "Network-network-305"
+            },
+            {
+              "type": "Network",
+              "value": "network-305",
+              "networkid": "Network-network-305"
+            }
+          ]
+        },
+        "hostinfo":
+        [
+          {
+            "ServerName": "192.168.101.15",
+            "ServerState": "Connected",
+            "HypervisorCD": "Vmware",
+            "Version": "6.7.0",
+            "Ip": "0.0.0.0",
+            "Cpu": 33520,
+            "Memory": 96729.5390625,
+            "ClusterUUID": "ClusterUUID",
+            "datastores":
+            [
+              {
+                "ClusterUUID": "ClusterUUID",
+                "StorageName": "DataStore15",
+                "StorageDescription": "\\Datacenter\\DataStore15",
+                "StorageType": "VMFS",
+                "StoragePurposeCD": "VM",
+                "StorageState": "Available",
+                "UsageSizeByte": 815850000,
+                "TotalSizeByte": 907520000,
+                "FreeSizeByte": 91670000,
+                "ProvisioningYN": true
+              }
+            ],
+            "networks":
+            [
+              {
+                "ClusterUUID": "ClusterUUID",
+                "NetworkName": "VM Network",
+                "NetworkType": "Network",
+                "NIC": "vmnic0"
+              },
+              {
+                "ClusterUUID": "ClusterUUID",
+                "NetworkName": "VM Network2",
+                "NetworkType": "Network",
+                "NIC": "vmnic0"
+              }
+            ]
+          }
+        ],
+        "networkinfo":
+        [
+          {
+            "ClusterUUID": "ClusterUUID",
+            "NetworkName": "VM Network2",
+            "NetworkType": "Network",
+            "NIC": "vmnic0"
+          },
+          {
+            "ClusterUUID": "ClusterUUID",
+            "NetworkName": "VM Network2",
+            "NetworkType": "Network",
+            "NIC": "vmnic0"
+          }
+        ],
+        "resourceinfo":
+        [
+          {
+            "ResourcepoolUUID" : "",
+            "ClusterUUID" : "",
+            "ResourcepoolID": "ResourcePool-resgroup-62",
+            "ResourcepoolNAME": "Resources",
+            "ParentID": "ClusterComputeResource-domain-c61",
+            "ParentNAME": "NM_VMWC",
+            "ResourcepoolPath": "/Datacenter/host/NM_VMWC/Resources",
+            "Description": "/Datacenter/host/NM_VMWC"
+          },
+          {
+            "ResourcepoolUUID" : "",
+            "ClusterUUID" : "",
+            "ResourcepoolID" : "",
+            "ResourcepoolNAME" : "",
+            "ParentID" : "",
+            "ParentNAME" : "",
+            "ResourcepoolPath" : "",
+            "Description" : "",
+          }
+        ]
+      }
+    ]
+  }
+
+
+{{ "clusterinfo": { "Id": "ClusterComputeResource-domain-c61", "Name": "NM_VMWC", "HAFailoverLevel": 1, "DrsAutomationLevel": "FullyAutomated", "detailinfo": { "ResourcePool": "ResourcePool-resgroup-62", "Parent": "Folder-group-h23", "Name": "NM_VMWC", "summary": { "TargetBalance": 282, "TotalCpu": 33520, "TotalMemory": "101428273152", "NumCpuCores": 16, "NumCpuThreads": 32, "EffectiveCpu": 28952, "EffectiveMemory": "88742", "NumHosts": 1, "NumEffectiveHosts": 1 }, "hosts": [ { "type": "HostSystem", "value": "host-28", "hostid": "HostSystem-host-28" } ], "datastores": [ { "type": "Datastore", "value": "datastore-29", "datastoreid": "Datastore-datastore-29" } ], "networks": [ { "type": "Network", "value": "network-305", "networkid": "Network-network-305" }, { "type": "Network", "value": "network-305", "networkid": "Network-network-305" } ] } }, "clusterdetail": { "ResourcePool": "ResourcePool-resgroup-62", "Parent": "Folder-group-h23", "Name": "NM_VMWC", "summary": { "TargetBalance": 282, "TotalCpu": 33520, "TotalMemory": "101428273152", "NumCpuCores": 16, "NumCpuThreads": 32, "EffectiveCpu": 28952, "EffectiveMemory": "88742", "NumHosts": 1, "NumEffectiveHosts": 1 }, "hosts": [ { "type": "HostSystem", "value": "host-28", "hostid": "HostSystem-host-28" } ], "datastores": [ { "type": "Datastore", "value": "datastore-29", "datastoreid": "Datastore-datastore-29" } ], "networks": [ { "type": "Network", "value": "network-305", "networkid": "Network-network-305" }, { "type": "Network", "value": "network-305", "networkid": "Network-network-305" } ] }, "hostinfo": [ { "ServerName": "192.168.101.15", "ServerState": "Connected", "HypervisorCD": "Vmware", "Version": "6.7.0", "Ip": "0.0.0.0", "Cpu": 33520, "Memory": 96729.5390625, "datastores": [ { "StorageName": "DataStore15", "StorageDescription": "\\Datacenter\\DataStore15", "StorageType": "VMFS", "StoragePurposeCD": "VM", "StorageState": "Available", "UsageSizeByte": 815850000, "TotalSizeByte": 907520000, "FreeSizeByte": 91670000, "ProvisioningYN": true } ], "networks": [ { "NetworkName": "VM Network", "NetworkType": "Network", "NIC": "vmnic0" }, { "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" } ] } ], "networkinfo": [ { "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" }, { "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" } ], "resourceinfo": [ { "ResourcepoolID": "ResourcePool-resgroup-62", "ResourcepoolNAME": "Resources", "ParentID": "ClusterComputeResource-domain-c61", "ParentNAME": "NM_VMWC", "ResourcepoolPath": "/Datacenter/host/NM_VMWC/Resources", "Description": "/Datacenter/host/NM_VMWC" } ] } ]}
+{{ "clusterinfo": { "Id": "ClusterComputeResource-domain-c61", "Name": "NM_VMWC", "HAFailoverLevel": 1, "DrsAutomationLevel": "FullyAutomated", "detailinfo": { "ResourcePool": "ResourcePool-resgroup-62", "Parent": "Folder-group-h23", "Name": "NM_VMWC", "summary": { "TargetBalance": 282, "TotalCpu": 33520, "TotalMemory": "101428273152", "NumCpuCores": 16, "NumCpuThreads": 32, "EffectiveCpu": 28952, "EffectiveMemory": "88742", "NumHosts": 1, "NumEffectiveHosts": 1 }, "hosts": [ { "type": "HostSystem", "value": "host-28", "hostid": "HostSystem-host-28" } ], "datastores": [ { "type": "Datastore", "value": "datastore-29", "datastoreid": "Datastore-datastore-29" } ], "networks": [ { "type": "Network", "value": "network-305", "networkid": "Network-network-305" }, { "type": "Network", "value": "network-305", "networkid": "Network-network-305" } ] } }, "clusterdetail": { "ResourcePool": "ResourcePool-resgroup-62", "Parent": "Folder-group-h23", "Name": "NM_VMWC", "summary": { "TargetBalance": 282, "TotalCpu": 33520, "TotalMemory": "101428273152", "NumCpuCores": 16, "NumCpuThreads": 32, "EffectiveCpu": 28952, "EffectiveMemory": "88742", "NumHosts": 1, "NumEffectiveHosts": 1 }, "hosts": [ { "type": "HostSystem", "value": "host-28", "hostid": "HostSystem-host-28" } ], "datastores": [ { "type": "Datastore", "value": "datastore-29", "datastoreid": "Datastore-datastore-29" } ], "networks": [ { "type": "Network", "value": "network-305", "networkid": "Network-network-305" }, { "type": "Network", "value": "network-305", "networkid": "Network-network-305" } ] }, "hostinfo": [ { "ServerName": "192.168.101.15", "ServerState": "Connected", "HypervisorCD": "Vmware", "Version": "6.7.0", "Ip": "0.0.0.0", "Cpu": 33520, "Memory": 96729.5390625, "datastores": [ { "StorageName": "DataStore15", "StorageDescription": "\\Datacenter\\DataStore15", "StorageType": "VMFS", "StoragePurposeCD": "VM", "StorageState": "Available", "UsageSizeByte": 815850000, "TotalSizeByte": 907520000, "FreeSizeByte": 91670000, "ProvisioningYN": true } ], "networks": [ { "NetworkName": "VM Network", "NetworkType": "Network", "NIC": "vmnic0" }, { "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" } ] } ], "networkinfo": [ { "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" }, { "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" } ], "resourceinfo": [ { "ClusterUUID": "ClusterUUID", "ResourcepoolID": "ResourcePool-resgroup-62", "ResourcepoolNAME": "Resources", "ParentID": "ClusterComputeResource-domain-c61", "ParentNAME": "NM_VMWC", "ResourcepoolPath": "/Datacenter/host/NM_VMWC/Resources", "Description": "/Datacenter/host/NM_VMWC" } ] }}
+{{ "clusterinfo": { "UUID": "ClusterUUID", "Id": "ClusterComputeResource-domain-c61", "Name": "NM_VMWC", "HAFailoverLevel": 1, "DrsAutomationLevel": "FullyAutomated", "detailinfo": { "ResourcePool": "ResourcePool-resgroup-62", "Parent": "Folder-group-h23", "Name": "NM_VMWC", "summary": { "TargetBalance": 282, "TotalCpu": 33520, "TotalMemory": "101428273152", "NumCpuCores": 16, "NumCpuThreads": 32, "EffectiveCpu": 28952, "EffectiveMemory": "88742", "NumHosts": 1, "NumEffectiveHosts": 1 }, "hosts": [ { "type": "HostSystem", "value": "host-28", "hostid": "HostSystem-host-28" } ], "datastores": [ { "type": "Datastore", "value": "datastore-29", "datastoreid": "Datastore-datastore-29" } ], "networks": [ { "type": "Network", "value": "network-305", "networkid": "Network-network-305" }, { "type": "Network", "value": "network-305", "networkid": "Network-network-305" } ] } }, "clusterdetail": { "ResourcePool": "ResourcePool-resgroup-62", "Parent": "Folder-group-h23", "Name": "NM_VMWC", "summary": { "TargetBalance": 282, "TotalCpu": 33520, "TotalMemory": "101428273152", "NumCpuCores": 16, "NumCpuThreads": 32, "EffectiveCpu": 28952, "EffectiveMemory": "88742", "NumHosts": 1, "NumEffectiveHosts": 1 }, "hosts": [ { "type": "HostSystem", "value": "host-28", "hostid": "HostSystem-host-28" } ], "datastores": [ { "type": "Datastore", "value": "datastore-29", "datastoreid": "Datastore-datastore-29" } ], "networks": [ { "type": "Network", "value": "network-305", "networkid": "Network-network-305" }, { "type": "Network", "value": "network-305", "networkid": "Network-network-305" } ] }, "hostinfo": [ { "ServerName": "192.168.101.15", "ServerState": "Connected", "HypervisorCD": "Vmware", "Version": "6.7.0", "Ip": "0.0.0.0", "Cpu": 33520, "Memory": 96729.5390625, "ClusterUUID": "ClusterUUID", "datastores": [ { "ClusterUUID": "ClusterUUID", "StorageName": "DataStore15", "StorageDescription": "\\Datacenter\\DataStore15", "StorageType": "VMFS", "StoragePurposeCD": "VM", "StorageState": "Available", "UsageSizeByte": 815850000, "TotalSizeByte": 907520000, "FreeSizeByte": 91670000, "ProvisioningYN": true } ], "networks": [ { "ClusterUUID": "ClusterUUID", "NetworkName": "VM Network", "NetworkType": "Network", "NIC": "vmnic0" }, { "ClusterUUID": "ClusterUUID", "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" } ] } ], "networkinfo": [ { "ClusterUUID": "ClusterUUID", "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" }, { "ClusterUUID": "ClusterUUID", "NetworkName": "VM Network2", "NetworkType": "Network", "NIC": "vmnic0" } ], "resourceinfo": [ { "ClusterUUID": "ClusterUUID", "ResourcepoolID": "ResourcePool-resgroup-62", "ResourcepoolNAME": "Resources", "ParentID": "ClusterComputeResource-domain-c61", "ParentNAME": "NM_VMWC", "ResourcepoolPath": "/Datacenter/host/NM_VMWC/Resources", "Description": "/Datacenter/host/NM_VMWC" } ] }}
+
+
+{
+  [
+    {
+      "clusterinfo":
+      {
+        "UUID": "ClusterUUID",
+        "Id": "ClusterComputeResource-domain-c61",
+        "Name": "NM_VMWC",
+        "HAFailoverLevel": 1,
+        "DrsAutomationLevel": "FullyAutomated",
+        "detailinfo":
+        {
+          "ResourcePool": "ResourcePool-resgroup-62",
+          "Parent": "Folder-group-h23",
+          "Name": "NM_VMWC",
+          "summary":
+          {
+            "TargetBalance": 282,
+            "TotalCpu": 33520,
+            "TotalMemory": "101428273152",
+            "NumCpuCores": 16,
+            "NumCpuThreads": 32,
+            "EffectiveCpu": 28952,
+            "EffectiveMemory": "88748",
+            "NumHosts": 1,
+            "NumEffectiveHosts": 1
+          },
+          "hosts": [
+            {
+              "type": "HostSystem",
+              "value": "host-28",
+              "hostid": "HostSystem-host-28"
+            }
+          ],
+          "datastores": [
+            {
+              "type": "Datastore",
+              "value": "datastore-29",
+              "datastoreid": "Datastore-datastore-29"
+            }
+          ],
+          "networks": [
+            {
+              "type": "Network",
+              "value": "network-305",
+              "networkid": "Network-network-305"
+            },
+            {
+              "type": "Network",
+              "value": "network-305",
+              "networkid": "Network-network-305"
+            }
+          ]
+        }
+      },
+      "clusterdetail":
+      {
+        "ResourcePool": "ResourcePool-resgroup-62",
+        "Parent": "Folder-group-h23",
+        "Name": "NM_VMWC",
+        "summary":
+        {
+          "TargetBalance": 282,
+          "TotalCpu": 33520,
+          "TotalMemory": "101428273152",
+          "NumCpuCores": 16,
+          "NumCpuThreads": 32,
+          "EffectiveCpu": 28952,
+          "EffectiveMemory": "88748",
+          "NumHosts": 1,
+          "NumEffectiveHosts": 1
+        },
+        "hosts": [
+          {
+            "type": "HostSystem",
+            "value": "host-28",
+            "hostid": "HostSystem-host-28"
+          }
+        ],
+        "datastores": [
+          {
+            "type": "Datastore",
+            "value": "datastore-29",
+            "datastoreid": "Datastore-datastore-29"
+          }
+        ],
+        "networks": [
+          {
+            "type": "Network",
+            "value": "network-305",
+            "networkid": "Network-network-305"
+          },
+          {
+            "type": "Network",
+            "value": "network-305",
+            "networkid": "Network-network-305"
+          }
+        ]
+      },
+      "hostinfo": [
+        {
+          "ServerUUID": "ServerUUID",
+          "ServerName": "192.168.101.15",
+          "ServerState": "Connected",
+          "HypervisorCD": "Vmware",
+          "Version": "6.7.0",
+          "Ip": "0.0.0.0",
+          "Cpu": 33520,
+          "Memory": 96729.5390625,
+          "ClusterUUID": "ClusterUUID",
+          "datastores": [
+            {
+              "StorageUUID": "StorageUUID",
+              "ClusterUUID": "ClusterUUID",
+              "StorageName": "DataStore15",
+              "StorageDescription": "\\Datacenter\\DataStore15",
+              "StorageType": "VMFS",
+              "StoragePurposeCD": "VM",
+              "StorageState": "Available",
+              "UsageSizeByte": 816066000,
+              "TotalSizeByte": 907520000,
+              "FreeSizeByte": 91454000,
+              "ProvisioningYN": true
+            }
+          ],
+          "networks": [
+            {
+              "NetworkUUID": "NetworkUUID",
+              "ClusterUUID": "ClusterUUID",
+              "NetworkName": "VM Network",
+              "NetworkType": "Network",
+              "NIC": "vmnic0"
+            },
+            {
+              "NetworkUUID": "NetworkUUID",
+              "ClusterUUID": "ClusterUUID",
+              "NetworkName": "VM Network2",
+              "NetworkType": "Network",
+              "NIC": "vmnic0"
+            }
+          ]
+        }
+      ],
+      "networkinfo": [
+        {
+          "NetworkUUID": "NetworkUUID",
+          "ClusterUUID": "ClusterUUID",
+          "NetworkName": "VM Network2",
+          "NetworkType": "Network", "NIC":
+          "vmnic0"
+        },
+        {
+          "NetworkUUID": "NetworkUUID",
+          "ClusterUUID": "ClusterUUID",
+          "NetworkName": "VM Network2",
+          "NetworkType": "Network",
+          "NIC": "vmnic0"
+        }
+      ],
+      "resourceinfo": [
+        {
+          "ResourcepoolUUID": "ResourcepoolUUID",
+          "ClusterUUID": "ClusterUUID",
+          "ResourcepoolID": "ResourcePool-resgroup-62",
+          "ResourcepoolNAME": "Resources",
+          "ParentID": "ClusterComputeResource-domain-c61",
+          "ParentNAME": "NM_VMWC",
+          "ResourcepoolPath": "/Datacenter/host/NM_VMWC/Resources",
+          "Description": "Cluster Path : /Datacenter/host/NM_VMWC"
+        } ,
+        {
+          "ResourcepoolUUID" : "ResourcepoolUUID2",
+          "ClusterUUID" : "ClusterUUID",
+          "ResourcepoolID" : "ResourcePool-resgroup-63",
+          "ResourcepoolNAME" : "Resources",
+          "ParentID" : "ClusterComputeResource-domain-c61",
+          "ParentNAME" : "NM_VMWC",
+          "ResourcepoolPath" : "/Datacenter/host/NM_VMWC/Resources",
+          "Description" : "Cluster Path : /Datacenter/host/NM_VMWC",
+        }
+      ]
+    }
+  ]
+}
+
+
+
+{"ReturnCode":0,"ReturnMsg":{"KO":"Infra 정보 Discovery 완료.","EN":"Infra Information Discovery Success"},"Infrainfo":[{"Clusterinfo":{"UUID":"","Id":"ClusterComputeResource-domain-c61","Name":"NM_VMWC","HAEnabled":false,"HAFailoverLevel":1,"DrsEnabled":false,"DrsAutomationLevel":"FullyAutomated","Detailinfo":{"ResourcePool":"ResourcePool-resgroup-62","Parent":"Folder-group-h23","Name":"NM_VMWC","Summary":{"NumVmotions":0,"TargetBalance":282,"CurrentBalance":0,"TotalCpu":33520,"TotalMemory":101428273152,"NumCpuCores":16,"NumCpuThreads":32,"EffectiveCpu":28952,"EffectiveMemory":88748,"NumHosts":1,"NumEffectiveHosts":1},"Hosts":[{"Type":"HostSystem","Value":"host-28","Hostid":"HostSystem-host-28"}],"Datastores":[{"Type":"Datastore","Value":"datastore-29","Datastoreid":"Datastore-datastore-29"}],"Networks":[{"Type":"Network","Value":"network-305","Networkid":"Network-network-305"},{"Type":"Network","Value":"network-305","Networkid":"Network-network-305"}]}},"Clusterdetail":{"ResourcePool":"ResourcePool-resgroup-62","Parent":"Folder-group-h23","Name":"NM_VMWC","Summary":{"NumVmotions":0,"TargetBalance":282,"CurrentBalance":0,"TotalCpu":33520,"TotalMemory":101428273152,"NumCpuCores":16,"NumCpuThreads":32,"EffectiveCpu":28952,"EffectiveMemory":88748,"NumHosts":1,"NumEffectiveHosts":1},"Hosts":[{"Type":"HostSystem","Value":"host-28","Hostid":"HostSystem-host-28"}],"Datastores":[{"Type":"Datastore","Value":"datastore-29","Datastoreid":"Datastore-datastore-29"}],"Networks":[{"Type":"Network","Value":"network-305","Networkid":"Network-network-305"},{"Type":"Network","Value":"network-305","Networkid":"Network-network-305"}]},"Hostinfo":[{"ServerUUID":"ServerUUID","ServerName":"192.168.101.15","ServerState":"Connected","HypervisorCD":"Vmware","Version":"6.7.0","Ip":"0.0.0.0","Cpu":33520,"Memory":96729.5390625,"ClusterUUID":"","MasterYN":false,"RegAdminID":"","RegDatetime":"","UpdateAdminID":"","UpdateDatetime":"","Delyn":false,"Vms":[],"Datastores":[{"StorageUUID":"StorageUUID","ClusterUUID":"","StorageName":"DataStore15","StorageDescription":"\\Datacenter\\DataStore15","StorageType":"VMFS","StoragePurposeCD":"VM","StorageState":"Available","Shared":false,"UsageSizeByte":816066000,"TotalSizeByte":907520000,"FreeSizeByte":91454000,"VirtualallocationSizeByte":0,"StorageCriticalPercentage":0,"ProvisioningYN":true,"RegAdminID":"","RegDatetime":"","UpdateAdminID":"","UpdateDatetime":"","Delyn":false}],"Networks":[{"NetworkUUID":"NetworkUUID","ClusterUUID":"","NetworkName":"VM Network","NetworkNameCustom":"","NetworkDescription":"","NetworkType":"Network","NIC":"vmnic0","VLAN":0,"RegAdminID":"","RegDatetime":"","UpdateAdminID":"","UpdateDatetime":"","Delyn":false},{"NetworkUUID":"NetworkUUID","ClusterUUID":"","NetworkName":"VM Network2","NetworkNameCustom":"","NetworkDescription":"","NetworkType":"Network","NIC":"vmnic0","VLAN":0,"RegAdminID":"","RegDatetime":"","UpdateAdminID":"","UpdateDatetime":"","Delyn":false}]}],"Networkinfo":[{"NetworkUUID":"NetworkUUID","ClusterUUID":"","NetworkName":"VM Network2","NetworkNameCustom":"","NetworkDescription":"","NetworkType":"Network","NIC":"vmnic0","VLAN":0,"RegAdminID":"","RegDatetime":"","UpdateAdminID":"","UpdateDatetime":"","Delyn":false},{"NetworkUUID":"NetworkUUID","ClusterUUID":"","NetworkName":"VM Network2","NetworkNameCustom":"","NetworkDescription":"","NetworkType":"Network","NIC":"vmnic0","VLAN":0,"RegAdminID":"","RegDatetime":"","UpdateAdminID":"","UpdateDatetime":"","Delyn":false}],"Resourceinfo":[{"ResourcepoolUUID":"ResourcepoolUUID","ClusterUUID":"","ResourcepoolID":"ResourcePool-resgroup-62","ResourcepoolNAME":"Resources","ParentID":"ClusterComputeResource-domain-c61","ParentNAME":"NM_VMWC","ResourcepoolPath":"Cluster Path : /Datacenter/host/NM_VMWC/Resources","Description":"Cluster Path : /Datacenter/host/NM_VMWC","RegAdminID":"","RegDatetime":"","UpdateAdminID":"","UpdateDatetime":"","Delyn":false}]}]}

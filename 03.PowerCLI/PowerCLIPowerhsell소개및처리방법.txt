@@ -1,0 +1,274 @@
+
+1	Installation
+
+2	Horizon
+    2.1	Installation
+    2.2	List of Commands
+    2.3	Creating a list of machines and users
+        2.3.1	The problem
+        2.3.2	The fix
+    2.4	Horizon API
+        2.4.1	Example: Maintenance MOde
+        2.4.2	Example: Refresh all VMs for Composer based images
+
+3	vcenter
+    3.1	Add/Remove Hardware
+        3.1.1	CPUs
+        3.1.2	Network Interfaces
+        3.1.3	RAM
+    3.2	Clone VM
+    3.3	Delete VM
+    3.4	Shutdown / Start VM
+    3.5	Snapshot Management
+
+#============================================================================================================================================
+1. Installation
+    - powershell이 ​​powercli cmdlet을 실행하도록 허용
+
+        Set-ExecutionPolicy RemoteSigned
+        Install-Module -Name VMware.PowerCLI -allowclobber
+
+    - 유효한 인증서를 설치하지 않은 경우. [1]
+
+        Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
+
+    - 모듈을 다운로드하고 모듈 디렉토리에 배치합니다.
+
+        Github 에서 다운로드후 압축해제 해당 Path로 이동한다. "C:\ProgramFiles\WindowsPowerShell\Modules"
+
+#============================================================================================================================================
+2	Horizon
+    대부분의 작업은 Horizon API로 처리가 가능하다. API 작업에 익숙하지 않은 경우 Github에서 추가 스크립트를 설치후 처리가 가능하다.
+    VMWare.hv.helper 모듈이 서명되지 않았을 시에는 실행 정책을 무제한으로 변경해야한다.
+
+    2.1	Installation
+        dir 'C:\Program Files\WindowsPowerShell\Modules\VMware.Hv.Helper\' | Unblock-File
+        Connect-HVServer -server localhost
+        Import-Module VMware.Hv.Helper
+        Import-Module VMware.VimAutomation.HorizonView
+        Import-Module VMware.VimAutomation.Core
+
+    2.2	명령어 LIST
+        PS C:\Windows\system32> Get-Command | where {$_.name -match "get-hv"}
+
+        CommandType     Name                                               Version    Source
+        -----------     ----                                               -------    ------
+        Function        Get-HvCommand                                      7.6.0.1... VMware.VimAutomation.HorizonView
+        Function        Get-HVEntitlement                                  1.1        VMware.Hv.Helper
+        Function        Get-HVEvent                                        1.1        VMware.Hv.Helper
+        .
+        .
+    2.3	머신 및 사용자 목록 생성
+
+        2.3.1	The problem
+        이것은 다른 Cmdlet만큼 직관적이지 않다. 예를 들어 Get-HVmachinesummary를 실행하고 머신 목록을 가져올수 있으나 Machine 및 사용자 필드를 선택할 수 없다.
+        Get-HVMachineSummary | select Machine, User
+        >>  Machine User
+            ------- ----
+
+        2.3.2	The fix
+        Get-Member를 사용하면 "기본" 속성이 있다는 것을 찾을수 있으며, 아래와 같이 처리시 필요한 모든 정보를 확인 할 수 있다
+            PS C:\Windows\system32> $machines=Get-HVMachineSummary
+            PS C:\Windows\system32> $machines | get-member
+
+            Name                    MemberType Definition
+            ----                    ---------- ----------
+            Equals                  Method     bool Equals(System.Object obj)
+            GetHashCode             Method     int GetHashCode()
+            ...
+
+            PS C:\Windows\system32> $machines.base
+            Name                             : lxn-vdi-02
+            DnsName                          : lxn-vdi-02.domain
+            User                             : VMware.Hv.UserOrGroupId
+            ....
+
+            PS C:\Windows\system32> $machines.namesdata
+
+            DesktopName UserName
+            ----------- --------
+            Test        domain.tld\user1
+
+            #======================================================================
+            # 그런 다음 값을 저장할 array [5]를 만들어서 모두 함께 가져옵니다.
+            # Ps1 소스 확인
+            #======================================================================
+            ##This will create a CSV of users and their assigned desktops.
+            ##Then save the file to C:\list.csv.
+
+            ##Grab credentials
+            $creds=Get-Credential -ErrorAction Stop
+
+            ##Set execution policy, because vmware didn't sign their modules.
+            Set-ExecutionPolicy Unrestricted
+
+            ##Connect to horizon connection server
+            Connect-HVServer -server localhost -Credential $creds -ErrorAction Stop
+
+            ##Import needed modules
+            Import-Module VMware.Hv.Helper -ErrorAction stop
+            Import-Module VMware.VimAutomation.HorizonView -ErrorAction stop
+            Import-Module VMware.VimAutomation.Core -ErrorAction Stop
+
+            ##Get list of machines
+            $machines=Get-HVMachineSummary
+
+            ##Create empt array
+            $list=@()
+
+            ##Generate list of users and their machines.
+            $machines | foreach {
+                $test=$null
+                $test=new-object system.object
+                $test | Add-Member -Type NoteProperty -Name User -Value $_.namesdata.username
+                Add-Member -InputObject $test -Type NoteProperty -Name Desktop -Value $_.base.name
+                $list+= $test
+                }
+
+            $list | Export-Csv -NoClobber -NoTypeInformation -Path C:\list.csv
+            #======================================================================
+
+    2.4	Horizon API
+        2.4.1	Example: Maintenance MOde
+            >> 1. 서버에 연결하고 모든 명령과 정크를 보관할 개체를 만듭니다.
+                $hvserver=connect-hvserver -server localhost -user user -password password -domain domain.tld
+                $services=$hvserver.extensiondata
+            >> 2. 완료하려는 작업에 대한 오버로드 개체 파악
+                PS C:\Windows\system32> $services.machine.machine_entermaintenancemode
+
+                OverloadDefinitions
+                -------------------
+                void Machine_EnterMaintenanceMode(VMware.Hv.MachineID id)
+            >> 3. 원하는 값으로 개체를 만듭니다.
+                [Vmware.Hv.machineid]$machine=(get-machine -machinename testmachine).id
+            >> 4. 작업 실행
+                $services.machine.machine_entermaintenancemode($machine)
+
+        2.4.2	Example: Refresh all VMs for Composer based images
+
+            #======================================================================
+            $hvserver=connect-hvserver -server localhost -user user -password password -domain domain.tld
+            $services=$hvserver.extensiondata
+            $spechelper=New-Object VMware.Hv.DesktopService+DesktopRefreshSpecHelper
+            $specbase=New-Object VMware.Hv.DesktopRefreshSpec
+            (get-hvmachine).base.desktop | foreach {
+                [Vmware.Hv.DesktopID]$deskid=$_
+                $spec=$specbase
+                $spec.logoffsetting=$spechelper.LOGOFF_SETTING_FORCE_LOGOFF
+                $spec.machines=$deskid
+                $services.desktop.desktop_refresh($deskid, $spec)
+            }
+#============================================================================================================================================
+# 3. vcenter
+#============================================================================================================================================
+# 해당 Command 를 이용하여 Server 에 로그인
+    $cred=get-credential
+    connect-viserver -server localhost -credential $cred
+    get-vm
+
+    3.1	Add/Remove Hardware
+        3.1.1	CPUs
+        3.1.2	Network Interfaces
+            The fun with this is that you can not remove a NIC from a running VM using powercli, or at least not in the way you would think.
+            You actually need to rebuild the config with the changes you want then apply it back.
+            Instead of doing this I decided to just disconnect the unwanted NIC and install the desired one.
+            Thankfully this is in a DHCP environment so no modifications needed in the guest OS.
+
+            The reason for this change was due to Windows VMs losing connectivity to domain traffic using the emulated Intel NIC.
+            According to our MS rep, we needed to change the NICs from e1000 to vmxnet3.
+            #---------------------------------------------------------------------------------------------------------------------
+            connect-viserver -server localhost
+            $list=get-vm
+            foreach ($i in $list){
+                $type=$i | Get-NetworkAdapter | select -ExpandProperty Type
+                if ($type -like "e1000"){
+                $i | get-networkadapter -name "Network adapter 1" | set-networkadapter -connected $false -startconnected $false -confirm $false
+                $i | new-networkadapter -networkname VDI -StartConnected -type vmxnet3}
+            }
+            #---------------------------------------------------------------------------------------------------------------------
+
+        3.1.3	RAM
+            Lets say you created a default config with 6GB of RAM because you were an ignorant moron, and now you need to increase this to a proper 8GB.[8]
+            The fun part is that the -MemoryGB option does not autofill, so you would be hard pressed to find this option without the Google.
+            Gotta love Linux man pages!
+
+            Get-Folder -Name <your folder>| get-vm | where {$_.MemoryGB -eq "6.00"} | Set-VM -MemoryGB 8 -confirm:$false
+
+    3.2	Clone VM
+        new-vm -name <new_machine_name> -vm <source_machine_name> -vmhost <ip or host name of the physical host, not the controller>
+        Sample Script : format is <scriptname>.ps1 <number of VMs to make>
+        ie clone_vm.ps1 3
+
+            #######################################################################
+            ###08-14-2017
+            ###Specified the datastore to use because vmware is stupid, and was
+            ###putting the VMs in the swap volume. Idiots.
+            #######################################################################
+            $num1 = Read-Host -Prompt "How many VMs? "
+            #Athenticate
+            $cred=get-credential
+            connect-viserver -server localhost -credential $cred
+
+            #Check for enough space
+            $neededspace=([int]$num1 * '<space needed for each VM>')
+            $space12=(datastore -Name <datastore name> | Select-Object FreeSpaceGB | ForEach-Object { $_.FreeSpaceGB })
+            if ( $space12 -lt $neededspace ){
+            echo "Not enought space, $space12 is available and you need $neededspace"
+            exit
+            }
+
+            #The following assumes you are creating VMs with an incrementing name based on a [a-z]+-[a-z]+-[0-9]+ format.
+            #Get last VM created for incremental creation
+            get-folder -name <folder name> | get-vm | select name > C:\powercli\outtest
+            $vms=(Get-Content C:\powercli\outtest | %{"$($_.Split('-')[2])"})
+            $base=0
+            foreach($line in $vms){
+                if ([int]$line -gt [int]$base){
+                    $base=$line
+                }
+            }
+
+            $base = [int]$base + 1
+            $num453=0
+            Do{
+                $usehost=(Get-VMHost | Get-Random)
+                new-vm -name vm-name-$base -vm clonefromthis -VMHost $usehost -Datastore <datastore to be used> -RunAsync -WhatIf
+                $num453=[int]$num453 + [int]1
+            }
+            until ([int]$num453 -eq [int]$num1)
+            #######################################################################
+
+    3.3	Delete VM
+        remote-vm -vm <namme_of_vm> -deletepermanently  -confirm:$false
+
+    3.4	Shutdown / Start VM
+        Get-Folder -Name pool02 | get-vm | where {$_.MemoryGB = "6.00"} | Shutdown-VM -Confirm:$false
+        Get-Folder -Name <your folder> | get-vm | Start-VM -Confirm:$false
+
+    3.5	Snapshot Management
+        This will create snapshots and remove any from a month ago.
+        TODO:Update to remove any older than a month. Also need email notification of failed attempts
+
+            #################################################
+            ## For creating a snapshot every week, and
+            ## removing snapshots older than a month.
+            #################################################
+            $newdate=date -Format MMddyyy
+            $olddate=date (date).addmonths(-1) -Format MMddyyy
+            $vsipass= echo 'password' | ConvertTo-SecureString -AsPlainText -force
+            $cred=New-Object System.Management.Automation.PSCredential -ArgumentList username,$vsipass
+            Connect-VIServer -server localhost -Credential $cred
+
+            ##Create new snapshots
+            Get-VM | New-Snapshot -Name "vsi-$newdate" -RunAsync -whatif
+
+            ##Delete old snapshots
+            $vsisnapshots=Get-VM | Get-Snapshot
+            if ($vsisnapshots.Name -like "vsi-$olddate"){$_.Name | remove-Snapshot -RunAsync -whatif}
+            Remove-Variable newdate
+            Remove-Variable olddate
+            exit 0
+
+            ##Check logs
+            sleep -Seconds 3600
+            get-vmhost | Get-Log -Key vmkernel | select $_.Entries -ExpandProperty Entries | where {$_ -like '*Failed*snapshot*'}

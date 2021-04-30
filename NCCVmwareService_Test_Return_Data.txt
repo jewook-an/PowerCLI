@@ -1,0 +1,121 @@
+-----------------------------------------------------------------------------------------------------------
+var catalist = infra2.GetCatalogList(rcatalog2);
+-----------------------------------------------------------------------------------------------------------
+{
+    "CatalogUUID": "4c4e2d4c-3b8e-4583-b038-e2386bde87e9",
+    "BrokerUUID": "79f3f0cf-5fa5-415d-b4af-0f8a9a6c5dfa",
+    "Description": "FullCloneFloating",
+    "RegdateTime": "2020-12-23 오후 4:02:13",
+    "UpdatedateTime": "2020-12-23 오후 4:19:24",
+    "CatalogName": "FullCloneFloating",
+    "CatalogType": "MANUAL"
+}
+{
+    "CatalogUUID": "6354E60B-DF71-44EA-A260-2CCEFC32F96B",
+    "BrokerUUID": "79f3f0cf-5fa5-415d-b4af-0f8a9a6c5dfa",
+    "Description": "Win10-Link",
+    "RegdateTime": "2020-12-02 오후 8:42:38",
+    "UpdatedateTime": "2020-12-23 오후 4:19:29",
+    "CatalogName": "Win10-Link",
+    "CatalogType": "AUTOMATED"
+}
+{
+    "CatalogUUID": "c0f900c6-dce4-430e-8c0a-b5caa181fe11",
+    "BrokerUUID": "79f3f0cf-5fa5-415d-b4af-0f8a9a6c5dfa",
+    "Description": "AutoFullClone",
+    "RegdateTime": "2020-12-23 오후 4:01:46",
+    "UpdatedateTime": "2020-12-23 오후 4:18:55",
+    "CatalogName": "AutoFullClone",
+    "CatalogType": "AUTOMATED"
+}
+-----------------------------------------------------------------------------------------------------------
+DesktopPoolInfo Poolinfo = ho.GetDesktopPoolDetail(request, item.CatalogName);
+-----------------------------------------------------------------------------------------------------------
+{
+    "Name": "FullCloneFloating",
+    "DisplayName": "FullCloneFloating",
+    "Enabled": true,
+    "Type": "MANUAL",
+    "Source": "VIRTUAL_CENTER",
+    "UserAssignment": "FLOATING",
+    "AccessGroup": "VMware.Hv.AccessGroupId",
+    "VirtualCenter": "VMware.Hv.VirtualCenterId",
+    "ProvisioningEnabled": true,
+    "NumMachines": 1,
+    "NumSessions": 1,
+    "SupportedDomains": "NAMURND",
+    "SupportedSessionType": "DESKTOP"
+}
+-----------------------------------------------------------------------------------------------------------
+vCenter cenInfo = center.GetCenterInfo(item.BrokerUUID);
+-----------------------------------------------------------------------------------------------------------
+{
+    "BrokerUUID": "79f3f0cf-5fa5-415d-b4af-0f8a9a6c5dfa",
+    "ConnName": "vCenter",
+    "ConnUID": "7789FFA1-EFD2-49D6-9927-4EBD1E304DB4",
+    "Address": "http://192.168.50.16",
+    "ConnType": "vCenter",
+    "UserName": "administrator@vsphere.local",
+    "PassWord": "9F2Pl8cH6Wf9cwTRFerLSg=="
+}
+-----------------------------------------------------------------------------------------------------------
+List<PoolVMInfo> poolvm = ho.GetPoolVMList(request, Poolinfo.Name);
+-----------------------------------------------------------------------------------------------------------
+{
+    "Name": "ManualVM1",
+    "DnsName": "manualvm1.namurnd.io",
+    "AccessGroup": "VMware.Hv.AccessGroupId",
+    "Desktop": "VMware.Hv.DesktopId",
+    "DesktopName": "FullCloneFloating",
+    "Session": "VMware.Hv.SessionId",
+    "BasicState": "DISCONNECTED",
+    "Type": "MANAGED_VIRTUAL_MACHINE",
+    "OperatingSystem": "Windows 10",
+    "OperatingSystemArchitecture": "64_bit"
+}
+//--------------------------------------------------------------
+// 초기 고정값 처리
+//--------------------------------------------------------------
+vminfo.ServiceUuid = "D86CEE62-7249-4638-BABE-2E8295DA3957";
+vminfo.VmImageUuid = "VMWareTestImage1";
+
+//--------------------------------------------------------------
+var vmdetail = center.GetVMInfo(vcRequest, p.Name);
+//--------------------------------------------------------------
+public VMInfoAll GetVMInfo(vCenterRequest request, string VMName)
+//--------------------------------------------------------------
+{
+    "Name": "ManualVM1",
+    "PowerState": "PoweredOn",
+    "NumCpu": "2",
+    "MemoryGB": "4",
+    "VMHostId": "HostSystem-host-1903",
+    "VMHost": "192.168.101.16",
+    "FolderId": "Folder-group-v1897",
+    "Folder": "vm",
+    "ResourcePoolId": "ResourcePool-resgroup-1908",
+    "ResourcePool": "Resources",
+    "GuestId": "windows9_64Guest",
+    "UsedSpaceGB": "36.136601297184824943542480469",
+    "ProvisionedSpaceGB": "36.136601765640079975128173828",
+    "DatastoreIdList": "Datastore-datastore-1904",
+    "CreateDate": "2020-11-16 오전 11:19:19",
+    "Id": "VirtualMachine-vm-1909",
+    "IPAddress": "192.168.101.229"
+}
+VmAccountMapInfo accmap = new VmAccountMapInfo();
+{
+    "Name": "ManualVM1",
+    "NumCpu": "2",
+    "MemoryGB": "4",
+    "UsedSpaceGB": "36.136601297184824943542480469",
+    "ProvisionedSpaceGB": "36.136601765640079975128173828",
+    "CreateDate": "2020-11-16 오전 11:19:19",
+    "IPAddress": "192.168.101.229",
+    "VmOs": "Windows 10 (64_bit)",
+    "ServiceUuid": "D86CEE62-7249-4638-BABE-2E8295DA3957",
+    "UserId": "jewook",
+    "CatalogUuid": "4c4e2d4c-3b8e-4583-b038-e2386bde87e9",
+    "VmImageUuid": "VMWareTestImage1",
+    "ProvisioningType": "FLOATING"
+}
